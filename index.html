@@ -308,6 +308,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/PostgreSQL-本地事务与全局事务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="For LXiao blog.">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PinoLiu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/24/PostgreSQL-本地事务与全局事务/" itemprop="url">
+                  PostgreSQL-本地事务与全局事务
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建于：2018-09-24 15:06:54 / 更新于：15:19:08" itemprop="dateCreated datePublished" datetime="2018-09-24T15:06:54+08:00">2018-09-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/24/PostgreSQL-本地事务与全局事务/" class="leancloud_visitors" data-flag-title="PostgreSQL-本地事务与全局事务">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          简介数据库事物的控制，不支持跨节点。因为当涉及跨conn的事务时，存在可见性的问题（conn间的操作，在未提交前互相不可见）。
+全局事务（conn不变）:先precommit (存入系统表，返回对应主键id， 其中使用gtid作为前缀，gtid为业务拼接的全局事务id) ，全部ok后，查系统表(gt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/24/PostgreSQL-本地事务与全局事务/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Shell实用类-公共日志(common_log)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1029,12 +1187,24 @@ Ctrl+e
                 
               
 
-              <time title="创建于：2018-09-08 21:46:33 / 更新于：23:18:22" itemprop="dateCreated datePublished" datetime="2018-09-08T21:46:33+08:00">2018-09-08</time>
+              <time title="创建于：2018-09-08 21:46:33" itemprop="dateCreated datePublished" datetime="2018-09-08T21:46:33+08:00">2018-09-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2018-09-24 15:19:12" itemprop="dateModified" datetime="2018-09-24T15:19:12+08:00">2018-09-24</time>
               
             
           </span>
@@ -1508,7 +1678,7 @@ Ctrl+e
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1535,7 +1705,9 @@ Ctrl+e
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
