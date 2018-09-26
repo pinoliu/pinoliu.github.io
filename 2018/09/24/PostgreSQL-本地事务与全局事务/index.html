@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="PinoLiu&#39;s Blog">
 <meta property="og:description" content="简介数据库事物的控制，不支持跨节点。因为当涉及跨conn的事务时，存在可见性的问题（conn间的操作，在未提交前互相不可见）。 全局事务（conn不变）:先precommit (存入系统表，返回对应主键id， 其中使用gtid作为前缀，gtid为业务拼接的全局事务id) ，全部ok后，查系统表(gtid作为前缀)将符合前缀的全部commit，遇到失败就rollback。存在部分commit、rol">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-24T07:19:08.342Z">
+<meta property="og:updated_time" content="2018-09-24T07:19:41.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostgreSQL-本地事务与全局事务">
 <meta name="twitter:description" content="简介数据库事物的控制，不支持跨节点。因为当涉及跨conn的事务时，存在可见性的问题（conn间的操作，在未提交前互相不可见）。 全局事务（conn不变）:先precommit (存入系统表，返回对应主键id， 其中使用gtid作为前缀，gtid为业务拼接的全局事务id) ，全部ok后，查系统表(gtid作为前缀)将符合前缀的全部commit，遇到失败就rollback。存在部分commit、rol">
@@ -351,7 +351,7 @@
                 
               
 
-              <time title="创建于：2018-09-24 15:06:54 / 更新于：15:19:08" itemprop="dateCreated datePublished" datetime="2018-09-24T15:06:54+08:00">2018-09-24</time>
+              <time title="创建于：2018-09-24 15:06:54 / 更新于：15:19:41" itemprop="dateCreated datePublished" datetime="2018-09-24T15:06:54+08:00">2018-09-24</time>
             
 
             
@@ -827,6 +827,11 @@
     
       <script type="text/javascript">
       function renderGitment(){
+		alert("Start")
+		var dateTest = "pagedate ="+page.date
+		alert(dateTest)
+		var titleTest = "pagetitle ="+page.title 
+		alert(titleTest)
         var gitment = new Gitmint({
             id: '<%= page.date %>',
             owner: 'pinoliu',
