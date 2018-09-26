@@ -853,12 +853,8 @@
       <script type="text/javascript">
       function renderGitment(){
 		alert("Start")
-		var dateTest = "pagedate ="+page.date
-		alert(dateTest)
-		var titleTest = "pagetitle ="+page.title 
-		alert(titleTest)
         var gitment = new Gitmint({
-            id: '<%= page.date %>',
+            id: '<%= page.date %>'
             owner: 'pinoliu',
             repo: 'mGitment',
             
