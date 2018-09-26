@@ -112,11 +112,11 @@
 <meta name="keywords" content="shell,commonlib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell实用类-公共日志(common_log)">
-<meta property="og:url" content="http://yoursite.com/2018/09/23/Shell实用类-公共日志(common_log)/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/23/shell_common_log/index.html">
 <meta property="og:site_name" content="PinoLiu&#39;s Blog">
 <meta property="og:description" content="简介本文核心为介绍 编写shell脚本中 常用到 公共日志类 的写法，并提供 简单的模板 可供大家直接使用。 用例目录结构1234567## 目录结构# opt# -- demo_assert# -- -- exec.sh# -- -- dir# -- -- -- common_log.sh# -- -- -- log.sh 效果展示123456789101112131415# Liu18:/op">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-23T13:57:14.040Z">
+<meta property="og:updated_time" content="2018-09-26T14:09:50.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell实用类-公共日志(common_log)">
 <meta name="twitter:description" content="简介本文核心为介绍 编写shell脚本中 常用到 公共日志类 的写法，并提供 简单的模板 可供大家直接使用。 用例目录结构1234567## 目录结构# opt# -- demo_assert# -- -- exec.sh# -- -- dir# -- -- -- common_log.sh# -- -- -- log.sh 效果展示123456789101112131415# Liu18:/op">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/23/Shell实用类-公共日志(common_log)/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/23/shell_common_log/"/>
 
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Shell实用类-公共日志(common_log)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/shell_common_log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="博主">
@@ -351,12 +351,24 @@
                 
               
 
-              <time title="创建于：2018-09-23 21:42:33 / 更新于：21:57:14" itemprop="dateCreated datePublished" datetime="2018-09-23T21:42:33+08:00">2018-09-23</time>
+              <time title="创建于：2018-09-23 21:42:33" itemprop="dateCreated datePublished" datetime="2018-09-23T21:42:33+08:00">2018-09-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2018-09-26 22:09:50" itemprop="dateModified" datetime="2018-09-26T22:09:50+08:00">2018-09-26</time>
               
             
           </span>
@@ -370,8 +382,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/23/Shell实用类-公共日志(common_log)/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/23/Shell实用类-公共日志(common_log)/" itemprop="commentsCount"></span>
+                <a href="/2018/09/23/shell_common_log/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/23/shell_common_log/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -379,7 +391,7 @@
 
           
           
-             <span id="/2018/09/23/Shell实用类-公共日志(common_log)/" class="leancloud_visitors" data-flag-title="Shell实用类-公共日志(common_log)">
+             <span id="/2018/09/23/shell_common_log/" class="leancloud_visitors" data-flag-title="Shell实用类-公共日志(common_log)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -479,7 +491,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/16/Java与Shell的交互-敏感信息传递/" rel="next" title="Java与Shell的交互-敏感信息传递">
+              <a href="/2018/09/16/java&shell/" rel="next" title="Java与Shell的交互-敏感信息传递">
                 <i class="fa fa-chevron-left"></i> Java与Shell的交互-敏感信息传递
               </a>
             
@@ -489,7 +501,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/24/PostgreSQL-本地事务与全局事务/" rel="prev" title="PostgreSQL-本地事务与全局事务">
+              <a href="/2018/09/24/postgres_transaction/" rel="prev" title="PostgreSQL-本地事务与全局事务">
                 PostgreSQL-本地事务与全局事务 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -835,9 +847,9 @@
       function renderGitment(){
 		alert("Start")
         var gitment = new Gitmint({
-            id: '<%= page.date %>'
+            id: 'location.pathname',
             owner: 'pinoliu',
-            repo: 'mGitment',
+            repo: 'pinoliu.github.io',
             
             lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
             

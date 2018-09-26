@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="简介数据库事物的控制，不支持跨节点。因为当涉及跨conn的事务时，存在可见性的问题（conn间的操作，在未提交前互相不可见）。 全局事务（conn不变）:先precommit (存入系统表，返回对应主键id， 其中使用gtid作为前缀，gtid为业务拼接的全局事务id) ，全部ok后，查系统表(gtid作为前缀)将符合前缀的全部commit，遇到失败就rollback。存在部分commit、rol">
-<meta name="keywords" content="postgresql">
+  <meta name="description" content="简介 shell解析json (好像是jq)会有安全问题,要求通过java或python进行装换; java与shell交互时,不能通过参数传递敏感信息（密码、证件号等）,会导致信息泄露(查看进程时明文展示) ,可通过环境变量传递。  用例shell传java: 1export temp_instance_pwd=$&amp;#123;temp_instance_pwd&amp;#125;; java获取： 1S">
+<meta name="keywords" content="java,shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PostgreSQL-本地事务与全局事务">
-<meta property="og:url" content="http://yoursite.com/2018/09/24/undefined/index.html">
+<meta property="og:title" content="Java与Shell的交互-敏感信息传递">
+<meta property="og:url" content="http://yoursite.com/2018/09/16/java&shell/index.html">
 <meta property="og:site_name" content="PinoLiu&#39;s Blog">
-<meta property="og:description" content="简介数据库事物的控制，不支持跨节点。因为当涉及跨conn的事务时，存在可见性的问题（conn间的操作，在未提交前互相不可见）。 全局事务（conn不变）:先precommit (存入系统表，返回对应主键id， 其中使用gtid作为前缀，gtid为业务拼接的全局事务id) ，全部ok后，查系统表(gtid作为前缀)将符合前缀的全部commit，遇到失败就rollback。存在部分commit、rol">
+<meta property="og:description" content="简介 shell解析json (好像是jq)会有安全问题,要求通过java或python进行装换; java与shell交互时,不能通过参数传递敏感信息（密码、证件号等）,会导致信息泄露(查看进程时明文展示) ,可通过环境变量传递。  用例shell传java: 1export temp_instance_pwd=$&amp;#123;temp_instance_pwd&amp;#125;; java获取： 1S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-24T07:19:41.833Z">
+<meta property="og:updated_time" content="2018-09-26T14:08:51.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PostgreSQL-本地事务与全局事务">
-<meta name="twitter:description" content="简介数据库事物的控制，不支持跨节点。因为当涉及跨conn的事务时，存在可见性的问题（conn间的操作，在未提交前互相不可见）。 全局事务（conn不变）:先precommit (存入系统表，返回对应主键id， 其中使用gtid作为前缀，gtid为业务拼接的全局事务id) ，全部ok后，查系统表(gtid作为前缀)将符合前缀的全部commit，遇到失败就rollback。存在部分commit、rol">
+<meta name="twitter:title" content="Java与Shell的交互-敏感信息传递">
+<meta name="twitter:description" content="简介 shell解析json (好像是jq)会有安全问题,要求通过java或python进行装换; java与shell交互时,不能通过参数传递敏感信息（密码、证件号等）,会导致信息泄露(查看进程时明文展示) ,可通过环境变量传递。  用例shell传java: 1export temp_instance_pwd=$&amp;#123;temp_instance_pwd&amp;#125;; java获取： 1S">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/24/undefined/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/16/java&shell/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>PostgreSQL-本地事务与全局事务 | PinoLiu's Blog</title>
+  <title>Java与Shell的交互-敏感信息传递 | PinoLiu's Blog</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/24/undefined/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/16/java&shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="博主">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PostgreSQL-本地事务与全局事务
+          <h1 class="post-title" itemprop="name headline">Java与Shell的交互-敏感信息传递
               
             
           </h1>
@@ -351,12 +351,24 @@
                 
               
 
-              <time title="创建于：2018-09-24 15:06:54 / 更新于：15:19:41" itemprop="dateCreated datePublished" datetime="2018-09-24T15:06:54+08:00">2018-09-24</time>
+              <time title="创建于：2018-09-16 15:48:51" itemprop="dateCreated datePublished" datetime="2018-09-16T15:48:51+08:00">2018-09-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2018-09-26 22:08:51" itemprop="dateModified" datetime="2018-09-26T22:08:51+08:00">2018-09-26</time>
               
             
           </span>
@@ -370,8 +382,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/09/24/undefined/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/24/undefined/" itemprop="commentsCount"></span>
+                <a href="/2018/09/16/java&shell/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/16/java&shell/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -379,7 +391,7 @@
 
           
           
-             <span id="/2018/09/24/undefined/" class="leancloud_visitors" data-flag-title="PostgreSQL-本地事务与全局事务">
+             <span id="/2018/09/16/java&shell/" class="leancloud_visitors" data-flag-title="Java与Shell的交互-敏感信息传递">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -410,11 +422,18 @@
       
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>数据库事物的控制，不支持跨节点。因为当涉及跨conn的事务时，存在可见性的问题（conn间的操作，在未提交前互相不可见）。</p>
-<p>全局事务（conn不变）:<br>先precommit (存入系统表，返回对应主键id， 其中使用gtid作为前缀，gtid为业务拼接的全局事务id) ，全部ok后，查系统表(gtid作为前缀)将符合前缀的全部commit，遇到失败就rollback。存在部分commit、rollback失败时，其余的仍要尽力完成。</p>
-<p>本地事务:<br>直接commit，失败就回滚。</p>
-<h2 id="功能调测"><a href="#功能调测" class="headerlink" title="功能调测"></a>功能调测</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">2018/09/10</span><br><span class="line">跨conn:</span><br><span class="line">场景一</span><br><span class="line">A_Conn起事务， inset， precommit。</span><br><span class="line">B_Conn起事务， insert...卡住，直到Acommit后报错。</span><br><span class="line">场景二：</span><br><span class="line">A_Conn起事务， inset;</span><br><span class="line">B_Conn起事务， insert...卡住...</span><br><span class="line">结论:</span><br><span class="line">事务启动后， insert时已经把关键key锁住了， precommit只是把具体的数据落地(存入数据库，事务状态完全保存在磁盘上)，只是此时仍数据&quot;隐藏状态&quot;，其它conn不可见。</span><br><span class="line">所以有种说法， precommit后，即使没有commit也不影响数据commit的成功。</span><br></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.jasongj.com/big_data/two_phase_commit/" target="_blank" rel="noopener">http://www.jasongj.com/big_data/two_phase_commit/</a></p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
+<li>shell解析json (好像是jq)会有安全问题,要求通过java或python进行装换;</li>
+<li>java与shell交互时,不能通过参数传递敏感信息（密码、证件号等）,会导致信息泄露(查看进程时明文展示) ,可通过环境变量传递。</li>
+</ol>
+<h2 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h2><p>shell传java:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export temp_instance_pwd=$&#123;temp_instance_pwd&#125;;</span><br></pre></td></tr></table></figure>
+<p>java获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.getenv(<span class="string">"temp_instance_pwd"</span>);</span><br></pre></td></tr></table></figure>
+<p>java传shell:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ProcessBuilder procBuilder = <span class="keyword">new</span> ProcessBuilder(args).directory(newFile(System.getProperty(<span class="string">"user.dir"</span>)));</span><br><span class="line">Map&lt;String, String&gt; env = procBuilder.environment();</span><br><span class="line">env.put(<span class="string">"temp_instance_pwd"</span>, MigrateProperties.getTmpInstancePwd());</span><br><span class="line"><span class="meta">@Cleanup</span>(<span class="string">"destroy"</span>)</span><br><span class="line">Process proc = procBuilder.start();</span><br></pre></td></tr></table></figure>
+<p>shell获取：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd=$&#123;temp_instance_pwd&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -464,7 +483,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/postgresql/" rel="tag"># postgresql</a>
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
         </div>
       
@@ -477,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/23/undefined/" rel="next" title="Shell实用类-公共日志(common_log)">
-                <i class="fa fa-chevron-left"></i> Shell实用类-公共日志(common_log)
+              <a href="/2018/09/16/processbuilder&runtime/" rel="next" title="Java进程调用系统命令-ProcessBuilder与Runtime">
+                <i class="fa fa-chevron-left"></i> Java进程调用系统命令-ProcessBuilder与Runtime
               </a>
             
           </div>
@@ -486,6 +507,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/23/shell_common_log/" rel="prev" title="Shell实用类-公共日志(common_log)">
+                Shell实用类-公共日志(common_log) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -641,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能调测"><span class="nav-number">2.</span> <span class="nav-text">功能调测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用例"><span class="nav-number">2.</span> <span class="nav-text">用例</span></a></li></ol></div>
             
 
           </div>
@@ -831,7 +856,7 @@
         var gitment = new Gitmint({
             id: 'location.pathname',
             owner: 'pinoliu',
-            repo: 'mGitment',
+            repo: 'pinoliu.github.io',
             
             lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
             
