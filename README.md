@@ -1,2 +1,3 @@
-# pinoliu.github.io
-For LXiao blog
+### 简介
+
+用于备份 博客中发布的 原创文章、代码用例 等文件资料。
