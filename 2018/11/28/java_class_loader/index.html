@@ -116,13 +116,13 @@
 <meta property="og:site_name" content="PinoLiu&#39;s Blog">
 <meta property="og:description" content="简介Java的类加载机制，氛围三种。最基础的是双亲加载模式的ClassLoader，然后为了克服双亲加载时分层类加载器间不可见的问题又存在了 Context ClassLoader（线程上下文类加载器），后来基于目前流行的服务化场景又提出来 ServiceLoader（服务加载器）。三种类加载器各自有自己的适用范围，互相补充。 介绍ClassLoader最基础的类加载机制是java进行类加载的基础">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/11/28/java_class_loader/assets/1543410686069.png">
-<meta property="og:image" content="http://yoursite.com/2018/11/28/java_class_loader/assets/20170922183420138.png">
-<meta property="og:updated_time" content="2018-11-28T13:55:07.926Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/pinoliu/pinoliu.github.io/develop/hexo/source/_posts/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B.assets/1543410686069.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/pinoliu/pinoliu.github.io/develop/hexo/source/_posts/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B.assets/20170922183420138.png">
+<meta property="og:updated_time" content="2018-11-28T14:20:51.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java类加载机制简介">
 <meta name="twitter:description" content="简介Java的类加载机制，氛围三种。最基础的是双亲加载模式的ClassLoader，然后为了克服双亲加载时分层类加载器间不可见的问题又存在了 Context ClassLoader（线程上下文类加载器），后来基于目前流行的服务化场景又提出来 ServiceLoader（服务加载器）。三种类加载器各自有自己的适用范围，互相补充。 介绍ClassLoader最基础的类加载机制是java进行类加载的基础">
-<meta name="twitter:image" content="http://yoursite.com/2018/11/28/java_class_loader/assets/1543410686069.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/pinoliu/pinoliu.github.io/develop/hexo/source/_posts/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B.assets/1543410686069.png">
 
 
 
@@ -354,7 +354,7 @@
                 
               
 
-              <time title="创建于：2018-11-28 21:40:59 / 更新于：21:55:07" itemprop="dateCreated datePublished" datetime="2018-11-28T21:40:59+08:00">2018-11-28</time>
+              <time title="创建于：2018-11-28 21:40:59 / 更新于：22:20:51" itemprop="dateCreated datePublished" datetime="2018-11-28T21:40:59+08:00">2018-11-28</time>
             
 
             
@@ -416,14 +416,14 @@
         <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Java的类加载机制，氛围三种。最基础的是双亲加载模式的ClassLoader，然后为了克服双亲加载时分层类加载器间不可见的问题又存在了 Context ClassLoader（线程上下文类加载器），后来基于目前流行的服务化场景又提出来 ServiceLoader（服务加载器）。三种类加载器各自有自己的适用范围，互相补充。</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h3><p>最基础的类加载机制是java进行类加载的基础，java为了安全将其分为三层：BootStrap ClassLoader（启动类加载器）、Extension ClassLoader（拓展类加载器）、App ClassLoader（系统类加载器）。其中，BootStrap ClassLoader 负责加载JDK中的核心类库（如：rt.jar、resources.jar、charsets.jar等），Extension ClassLoader 负责加载Java的扩展类库（默认加载JAVA_HOME/jre/lib/ext/目下的所有jar），App ClassLoader 负责加载应用程序classpath目录下的所有jar和class文件。除此之外，java还提供了 Custom ClassLoader 供用户进行定制加载。</p>
 <p>ClassLoader的加载使用 双亲委托模型，即由下层加载类加载器委托上层类加载器进行加载，可以有效避免java核心类被替换的风险。原理图示如下：</p>
-<p><img src=".\assets\1543410686069.png" alt="1543410686069"></p>
+<p><img src="https://raw.githubusercontent.com/pinoliu/pinoliu.github.io/develop/hexo/source/_posts/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B.assets/1543410686069.png" alt="1543410686069"></p>
 <h4 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h4><p><a href="https://blog.csdn.net/xyang81/article/details/7292380" target="_blank" rel="noopener">https://blog.csdn.net/xyang81/article/details/7292380</a></p>
 <p><a href="http://www.cnblogs.com/yangy608/archive/2011/07/23/2114900.html" target="_blank" rel="noopener">http://www.cnblogs.com/yangy608/archive/2011/07/23/2114900.html</a></p>
 <p><a href="https://blog.csdn.net/briblue/article/details/54973413" target="_blank" rel="noopener">https://blog.csdn.net/briblue/article/details/54973413</a></p>
 <h3 id="Context-ClassLoader"><a href="#Context-ClassLoader" class="headerlink" title="Context ClassLoader"></a>Context ClassLoader</h3><p>线程上下文类加载器，是对双亲类加载器机制很好的补充。</p>
 <p>基础的双亲委托ClassLoader存在一个严重的问题，对于SPI来说，有些接口是JAVA核心库提供的，而JAVA核心库是由启动类加载器来加载的，而这些接口的实现却来自于不同的jar包（厂商提供），JAVA的启动类加载器是不会加载其他来源的jar包，这样传统的双亲委托模型就无法满足SPI的要求。</p>
 <p>而通过给当前线程设置上下文类加载器，就可以设置的上下文类加载器来实现对于接口实现类的加载。DriverManager（驱动加载管理）是很经典的线程上下文类加载器的使用场景，核心代码如下：</p>
-<p><img src=".\assets\20170922183420138.png" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/pinoliu/pinoliu.github.io/develop/hexo/source/_posts/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B.assets/20170922183420138.png" alt="1543410686069"></p>
 <p>总结要 线程上下文 的场景如下：</p>
 <ol>
 <li>当高层提供了统一接口让低层去实现，同时又要是在高层加载（或实例化）低层的类时，必须通过线程上下文类加载器来帮助高层的ClassLoader找到并加载该类。</li>
