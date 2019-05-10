@@ -22,7 +22,7 @@ Java的类加载机制，氛围三种。最基础的是双亲加载模式的Clas
 
 ClassLoader的加载使用 双亲委托模型，即由下层加载类加载器委托上层类加载器进行加载，可以有效避免java核心类被替换的风险。原理图示如下：
 
-![1543410686069](Java类加载机制简介.assets/1543410686069.png)
+![1543410686069](https://raw.githubusercontent.com/pinoliu/pinoliu.github.io/develop/hexo/source/_posts/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B.assets/1543410686069.png)
 
 #### 参考链接：
 
@@ -40,7 +40,7 @@ https://blog.csdn.net/briblue/article/details/54973413
 
 而通过给当前线程设置上下文类加载器，就可以设置的上下文类加载器来实现对于接口实现类的加载。DriverManager（驱动加载管理）是很经典的线程上下文类加载器的使用场景，核心代码如下：
 
-![20170922183420138](Java类加载机制简介.assets/20170922183420138.png)
+![1543410686069](https://raw.githubusercontent.com/pinoliu/pinoliu.github.io/develop/hexo/source/_posts/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B.assets/20170922183420138.png)
 
 总结要 线程上下文 的场景如下：
 
