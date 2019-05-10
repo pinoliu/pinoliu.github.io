@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="For LXiao blog.">
+  <meta name="description" content="简述当程序在Linux系统中运行时，遇到一些性能资源的瓶颈的时候，就需要通过分析Linux系统本身的数据来分析具体的优化点。如具体哪个资源（io、cpu、memory、cache等）、哪个线程（业务、平台等）对整体的负担太大，需要进行优化。 常用指令CPUpidstat -u 1 12345678910111213141516171819202122it:~ # pidstat -uLinux 4">
 <meta name="keywords" content="linux,cmd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux系统状态查询命令">
 <meta property="og:url" content="http://yoursite.com/2018/12/04/linux_sys_check_cmd/index.html">
 <meta property="og:site_name" content="PinoLiu&#39;s Blog">
-<meta property="og:description" content="For LXiao blog.">
+<meta property="og:description" content="简述当程序在Linux系统中运行时，遇到一些性能资源的瓶颈的时候，就需要通过分析Linux系统本身的数据来分析具体的优化点。如具体哪个资源（io、cpu、memory、cache等）、哪个线程（业务、平台等）对整体的负担太大，需要进行优化。 常用指令CPUpidstat -u 1 12345678910111213141516171819202122it:~ # pidstat -uLinux 4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T14:36:39.047Z">
+<meta property="og:updated_time" content="2019-05-10T14:35:56.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux系统状态查询命令">
-<meta name="twitter:description" content="For LXiao blog.">
+<meta name="twitter:description" content="简述当程序在Linux系统中运行时，遇到一些性能资源的瓶颈的时候，就需要通过分析Linux系统本身的数据来分析具体的优化点。如具体哪个资源（io、cpu、memory、cache等）、哪个线程（业务、平台等）对整体的负担太大，需要进行优化。 常用指令CPUpidstat -u 1 12345678910111213141516171819202122it:~ # pidstat -uLinux 4">
 
 
 
@@ -351,12 +351,24 @@
                 
               
 
-              <time title="创建于：2018-12-04 22:33:38 / 更新于：22:36:39" itemprop="dateCreated datePublished" datetime="2018-12-04T22:33:38+08:00">2018-12-04</time>
+              <time title="创建于：2018-12-04 22:33:38" itemprop="dateCreated datePublished" datetime="2018-12-04T22:33:38+08:00">2018-12-04</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="更新于：2019-05-10 22:35:56" itemprop="dateModified" datetime="2019-05-10T22:35:56+08:00">2019-05-10</time>
               
             
           </span>
@@ -410,7 +422,32 @@
       
 
       
-        
+        <h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>当程序在Linux系统中运行时，遇到一些性能资源的瓶颈的时候，就需要通过分析Linux系统本身的数据来分析具体的优化点。如具体哪个资源（io、cpu、memory、cache等）、哪个线程（业务、平台等）对整体的负担太大，需要进行优化。</p>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p><code>pidstat -u 1</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">it:~ # pidstat -u</span><br><span class="line">Linux 4.4.74-92.35-default (it) 	12/04/18 	_x86_64_	(1 CPU)</span><br><span class="line"></span><br><span class="line">23:23:50      UID       PID    %usr %system  %guest    %CPU   CPU  Command</span><br><span class="line">23:23:50        0         1    0.14    0.83    0.00    0.97     0  systemd</span><br><span class="line">23:23:50        0         3    0.01    0.00    0.00    0.01     0  ksoftirqd/0</span><br><span class="line">23:23:50        0         7    0.01    0.00    0.00    0.01     0  rcu_sched</span><br><span class="line">23:23:50        0        19    0.01    0.00    0.00    0.01     0  kworker/0:1</span><br><span class="line">23:23:50        0        44    0.00    0.04    0.00    0.04     0  printk</span><br><span class="line">23:23:50        0       435    0.01    0.01    0.00    0.02     0  systemd-journal</span><br><span class="line">23:23:50        0       472    0.11    0.00    0.00    0.11     0  haveged</span><br><span class="line">23:23:50        0       482    0.01    0.01    0.00    0.01     0  systemd-udevd</span><br><span class="line">23:23:50      499       569    0.01    0.00    0.00    0.01     0  dbus-daemon</span><br><span class="line">23:23:50        0       589    0.01    0.01    0.00    0.02     0  aliyun-service</span><br><span class="line">23:23:50    65534       660    0.01    0.00    0.00    0.01     0  nscd</span><br><span class="line">23:23:50        0       706    0.01    0.00    0.00    0.01     0  wickedd</span><br><span class="line">23:23:50       74      1120    0.01    0.00    0.00    0.01     0  ntpd</span><br><span class="line">23:23:50       74      1180    0.01    0.00    0.00    0.01     0  ntpd</span><br><span class="line">23:23:50        0      1263    0.02    0.01    0.00    0.03     0  AliYunDunUpdate</span><br><span class="line">23:23:50        0      1280    0.11    0.05    0.00    0.17     0  AliYunDun</span><br><span class="line">23:23:50        0      1338    0.01    0.01    0.00    0.01     0  sshd</span><br><span class="line">23:23:50        0      1349    0.01    0.00    0.00    0.01     0  bash</span><br></pre></td></tr></table></figure>
+<h3 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h3><p><code>pidstat -r 1</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">it:~ # pidstat -r</span><br><span class="line">Linux 4.4.74-92.35-default (it) 	12/04/18 	_x86_64_	(1 CPU)</span><br><span class="line"></span><br><span class="line">23:24:52      UID       PID  minflt/s  majflt/s     VSZ    RSS   %MEM  Command</span><br><span class="line">23:24:52        0         1     43.72      0.09   37412   5476   0.54  systemd</span><br><span class="line">23:24:52        0       435      8.79      0.07   35116   7836   0.77  systemd-journal</span><br><span class="line">23:24:52        0       472      4.56      0.01   12024   6064   0.60  haveged</span><br><span class="line">23:24:52        0       482      7.04      0.02   43236   3684   0.36  systemd-udevd</span><br><span class="line">23:24:52      499       569      1.31      0.02   47880   3920   0.39  dbus-daemon</span><br><span class="line">23:24:52        0       589      0.85      0.02   65396   3852   0.38  aliyun-service</span><br><span class="line">23:24:52        0       633      2.10      0.02   29792   5132   0.51  wickedd-dhcp4</span><br><span class="line">23:24:52        0       634      1.82      0.01   29792   4988   0.49  wickedd-dhcp6</span><br><span class="line">23:24:52        0       640      1.79      0.01   29788   4984   0.49  wickedd-auto4</span><br><span class="line">23:24:52    65534       660      0.86      0.00  536336   2848   0.28  nscd</span><br><span class="line">23:24:52        0       694      1.74      0.02  348008   4464   0.44  rsyslogd</span><br><span class="line">23:24:52        0       706      4.44      0.00   29784   5124   0.50  wickedd</span><br><span class="line">23:24:52        0       708      1.02      0.00   30476   2940   0.29  systemd-logind</span><br><span class="line">23:24:52        0       724      1.84      0.00   29816   5004   0.49  wickedd-nanny</span><br><span class="line">23:24:52        0       740      0.67      0.00   12968   1968   0.19  agetty</span><br><span class="line">23:24:52        0       741      0.69      0.00   12968   2036   0.20  agetty</span><br><span class="line">23:24:52       74      1120      0.90      0.00   27904   4416   0.43  ntpd</span><br><span class="line">23:24:52       74      1180      0.41      0.00   27900   2748   0.27  ntpd</span><br><span class="line">23:24:52        0      1263      1.17      0.00   25952   5224   0.51  AliYunDunUpdate</span><br><span class="line">23:24:52        0      1277      1.14      0.00   27100   2992   0.29  cron</span><br><span class="line">23:24:52        0      1280      6.58      0.07  128040  16328   1.61  AliYunDun</span><br><span class="line">23:24:52        0      1319      1.53      0.01   53528   5736   0.56  sshd</span><br><span class="line">23:24:52        0      1338      2.52      0.02  104064   7692   0.76  sshd</span><br><span class="line">23:24:52        0      1341      2.53      0.00   36508   4500   0.44  systemd</span><br><span class="line">23:24:52        0      1346      0.10      0.00   85728   1832   0.18  (sd-pam)</span><br><span class="line">23:24:52        0      1349     11.57      0.05   23408   5368   0.53  bash</span><br><span class="line">23:24:52        0      1425      1.27      0.00    4696   1784   0.18  pidstat</span><br></pre></td></tr></table></figure>
+<h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><p><code>pidstat -d</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">it:~ # pidstat -d</span><br><span class="line">Linux 4.4.74-92.35-default (it) 	12/04/18 	_x86_64_	(1 CPU)</span><br><span class="line"></span><br><span class="line">23:26:08      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command</span><br><span class="line">23:26:08        0         1    274.48      0.89      0.01      44  systemd</span><br><span class="line">23:26:08        0        45      6.43      0.00      0.00       2  kworker/u2:1</span><br><span class="line">23:26:08        0       347      0.00      2.03      0.00       2  jbd2/vda1-8</span><br><span class="line">23:26:08        0       435     17.90     12.13      0.00      15  systemd-journal</span><br><span class="line">23:26:08        0       472      0.36      0.00      0.00       5  haveged</span><br><span class="line">23:26:08        0       482     31.93      0.00      0.00       5  systemd-udevd</span><br><span class="line">23:26:08      499       569      5.55      0.00      0.00      10  dbus-daemon</span><br><span class="line">23:26:08        0       589     15.60      0.02      0.00       7  aliyun-service</span><br><span class="line">23:26:08        0       633      6.57      0.01      0.00       7  wickedd-dhcp4</span><br><span class="line">23:26:08        0       634      1.53      0.00      0.00       7  wickedd-dhcp6</span><br><span class="line">23:26:08        0       640      1.06      0.00      0.00       6  wickedd-auto4</span><br><span class="line">23:26:08    65534       660      0.09      0.00      0.00       0  nscd</span><br><span class="line">23:26:08        0       694      3.58      0.30      0.00       1  rsyslogd</span><br><span class="line">23:26:08        0       706      4.29      0.21      0.12       0  wickedd</span><br><span class="line">23:26:08        0       708      1.94      0.00      0.00       0  systemd-logind</span><br><span class="line">23:26:08        0       724      0.19      0.00      0.00       1  wickedd-nanny</span><br><span class="line">23:26:08        0       740      0.12      0.00      0.00       0  agetty</span><br><span class="line">23:26:08        0       741      0.44      0.00      0.00       0  agetty</span><br><span class="line">23:26:08       74      1120      2.67      0.04      0.00       1  ntpd</span><br><span class="line">23:26:08        0      1263      1.76      0.07      0.00       0  AliYunDunUpdate</span><br><span class="line">23:26:08        0      1277      0.26      0.00      0.00       0  cron</span><br><span class="line">23:26:08        0      1280     15.02      0.05      0.00       3  AliYunDun</span><br><span class="line">23:26:08        0      1319      2.92      0.00      0.00       0  sshd</span><br><span class="line">23:26:08        0      1338      1.97      0.00      0.00       1  sshd</span><br><span class="line">23:26:08        0      1341      0.17      0.00      0.00       0  systemd</span><br><span class="line">23:26:08        0      1349     10.68      0.04      0.00       2  bash</span><br></pre></td></tr></table></figure>
+<h3 id="每个CPU的使用情况"><a href="#每个CPU的使用情况" class="headerlink" title="每个CPU的使用情况"></a>每个CPU的使用情况</h3><p>如果单个CPU的占用率特别高，那么有可能是单一线程引起的。</p>
+<p><code>mpstat -P ALL 1</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">it:~ # mpstat -P ALL </span><br><span class="line">Linux 4.4.74-92.35-default (it) 	12/08/18 	_x86_64_	(1 CPU)</span><br><span class="line"></span><br><span class="line">23:16:37     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle</span><br><span class="line">23:16:37     all    0.08    0.00    0.07    0.00    0.00    0.00    0.00    0.00    0.00   99.84</span><br><span class="line">23:16:37       0    0.08    0.00    0.07    0.00    0.00    0.00    0.00    0.00    0.00   99.84</span><br></pre></td></tr></table></figure>
+<h3 id="统计并输出CPU实用信息及特定设备或分区的IO信息"><a href="#统计并输出CPU实用信息及特定设备或分区的IO信息" class="headerlink" title="统计并输出CPU实用信息及特定设备或分区的IO信息"></a>统计并输出CPU实用信息及特定设备或分区的IO信息</h3><p><code>iostat</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">it:~ # iostat</span><br><span class="line">Linux 4.4.74-92.35-default (it) 	12/08/18 	_x86_64_	(1 CPU)</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %nice %system %iowait  %steal   %idle</span><br><span class="line">           0.08    0.00    0.07    0.00    0.00   99.84</span><br><span class="line"></span><br><span class="line">Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">vda               0.18         0.51         1.06     177041     365772</span><br></pre></td></tr></table></figure>
+<p><code>iostat -xz 1</code></p>
+<p>聚焦机器磁盘 IO 情况</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">it:/opt # iostat -xz</span><br><span class="line">Linux 4.4.74-92.35-default (it) 	12/09/18 	_x86_64_	(1 CPU)</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %nice %system %iowait  %steal   %idle</span><br><span class="line">           0.08    0.00    0.07    0.00    0.00   99.84</span><br><span class="line"></span><br><span class="line">Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util</span><br><span class="line">vda               0.00     0.05    0.04    0.17     0.60     1.10    16.44     0.00    3.51    2.45    3.77   0.19   0.00</span><br></pre></td></tr></table></figure>
+<h3 id="磁盘使用情况"><a href="#磁盘使用情况" class="headerlink" title="磁盘使用情况"></a>磁盘使用情况</h3><p><code>df -h</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">it:~ # df -h</span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">devtmpfs        488M     0  488M   0% /dev</span><br><span class="line">tmpfs           496M     0  496M   0% /dev/shm</span><br><span class="line">tmpfs           496M  748K  496M   1% /run</span><br><span class="line">tmpfs           496M     0  496M   0% /sys/fs/cgroup</span><br><span class="line">/dev/vda1        40G  2.0G   36G   6% /</span><br><span class="line">tmpfs           100M     0  100M   0% /run/user/0</span><br></pre></td></tr></table></figure>
+<h3 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h3><p><code>du -sh *</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">it:/opt # du -sh *</span><br><span class="line">4.0K	demo.txt</span><br></pre></td></tr></table></figure>
+<h3 id="系统健康"><a href="#系统健康" class="headerlink" title="系统健康"></a>系统健康</h3><p><code>top</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">top - 00:23:03 up 4 days,  1:02,  1 user,  load average: 0.00, 0.00, 0.00</span><br><span class="line">Tasks:  84 total,   1 running,  83 sleeping,   0 stopped,   0 zombie</span><br><span class="line"><span class="meta">%</span>Cpu(s):  0.0 us,  0.3 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st</span><br><span class="line">KiB Mem:   1015572 total,   449572 used,   566000 free,    69808 buffers</span><br><span class="line">KiB Swap:        0 total,        0 used,        0 free.   325364 cached Mem</span><br><span class="line"></span><br><span class="line">  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                                                                   </span><br><span class="line">    1 root      20   0   37412   5476   3880 S 0.000 0.539   0:08.97 systemd                                                                                                                   </span><br><span class="line">    2 root      20   0       0      0      0 S 0.000 0.000   0:00.01 kthreadd                                                                                                                  </span><br><span class="line">    3 root      20   0       0      0      0 S 0.000 0.000   0:01.45 ksoftirqd/0                                                                                                               </span><br><span class="line">    5 root       0 -20       0      0      0 S 0.000 0.000   0:00.00 kworker/0:0H                                                                                                              </span><br><span class="line">    6 root      20   0       0      0      0 S 0.000 0.000   0:00.01 kworker/u2:0                                                                                                              </span><br><span class="line">    7 root      20   0       0      0      0 S 0.000 0.000   0:04.50 rcu_sched</span><br></pre></td></tr></table></figure>
+<h3 id="机器负载"><a href="#机器负载" class="headerlink" title="机器负载"></a>机器负载</h3><p>CPU资源的进程和阻塞在不可终端IO进程（进程状态为D），1min、5min、15min的平均负载情况</p>
+<p><code>uptime</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">it:/opt # uptime</span><br><span class="line"> 00:25am  up 4 days  1:04,  1 user,  load average: 0.00, 0.00, 0.00</span><br></pre></td></tr></table></figure>
+<h3 id="系统核心指标"><a href="#系统核心指标" class="headerlink" title="系统核心指标"></a>系统核心指标</h3><p><code>vmstat 1</code> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">it:/opt # vmstat</span><br><span class="line">procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----</span><br><span class="line"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line"> 0  0      0 565924  69904 325384    0    0     1     1   79  108  0  0 100  0  0</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -484,7 +521,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/09/null/" rel="prev" title="Linux常见文件压缩类型">
+              <a href="/2018/12/09/linux_sys_compress_cmd/" rel="prev" title="Linux常见文件压缩类型">
                 Linux常见文件压缩类型 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -538,8 +575,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -631,6 +677,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用指令"><span class="nav-number">2.</span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU"><span class="nav-number">2.1.</span> <span class="nav-text">CPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory"><span class="nav-number">2.2.</span> <span class="nav-text">Memory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO"><span class="nav-number">2.3.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每个CPU的使用情况"><span class="nav-number">2.4.</span> <span class="nav-text">每个CPU的使用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计并输出CPU实用信息及特定设备或分区的IO信息"><span class="nav-number">2.5.</span> <span class="nav-text">统计并输出CPU实用信息及特定设备或分区的IO信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘使用情况"><span class="nav-number">2.6.</span> <span class="nav-text">磁盘使用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件大小"><span class="nav-number">2.7.</span> <span class="nav-text">文件大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统健康"><span class="nav-number">2.8.</span> <span class="nav-text">系统健康</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器负载"><span class="nav-number">2.9.</span> <span class="nav-text">机器负载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统核心指标"><span class="nav-number">2.10.</span> <span class="nav-text">系统核心指标</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
